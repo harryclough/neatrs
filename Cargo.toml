@@ -2,10 +2,10 @@
 name = "neatrs"
 version = "0.1.0"
 edition = "2021"
-author = "Harry Clough"
+authors = ["Harry Clough"]
 license = "MIT"
 readme = "readme.md"
-repository = "https://github.com/harryclough/rust-ann"
+repository = "https://github.com/harryclough/neat-rs"
 description = "An implementation of the NEAT algorithm for Rust"
 
 [dependencies]
