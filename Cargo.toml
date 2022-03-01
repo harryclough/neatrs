@@ -1,0 +1,12 @@
+[package]
+name = "neatrs"
+version = "0.1.0"
+edition = "2021"
+author = "Harry Clough"
+license = "MIT"
+readme = "readme.md"
+repository = "https://github.com/harryclough/rust-ann"
+description = "An implementation of the NEAT algorithm for Rust"
+
+[dependencies]
+
