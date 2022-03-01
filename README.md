@@ -1,5 +1,5 @@
 
-# neat-rs
+# neatrs
 
 A Rust library for the NEAT algorithm.
 
@@ -7,10 +7,14 @@ Algorithm based on the paper:
 <http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf>.
 
 
-## Docs
+## Documentation
 
 See the doc comments for usage documentation, or download the the repository and
-use the command `cargo doc --open` to build and view the rust docs.
+use the command:
+
+`cargo doc --open`
+
+to build and view the rust docs.
 
 **TODO:** Host the docs on the GitHub Pages for this repository.
 
@@ -21,10 +25,10 @@ use.
 
 Core Plan:
  - [x] Create the Environment trait
- - [ ] Create Docs and function signatures for Genome
- - [ ] Implement the Organism's key methods
- - [ ] Implement Population's key methods
- - [ ] Implement Genome's methods
+ - [ ] Create Docs and method signatures for Genome
+ - [ ] Implement Organism.rs's key methods
+ - [ ] Implement Population.rs's key methods
+ - [ ] Implement Genome.rs's outlined methods
  - [ ] Add some basic statistical info to Population
 
 Extra Goals:
