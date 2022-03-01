@@ -3,7 +3,7 @@
 
 use crate::organism::Organism;
 
-/// An Env is the environment in which an [Organism](Organism) is learning to
+/// The environment in which an [Organism](Organism) is learning to
 /// perform in, and where it's fitness function is evaluated.
 /// 
 /// This trait allows for the evalation of the fitness of an `Organism`.
