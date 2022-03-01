@@ -7,7 +7,7 @@ use crate::organism::Organism;
 /// perform in, and where it's fitness function is evaluated.
 /// 
 /// This trait allows for the evalation of the fitness of an `Organism`.
-pub trait Env {
+pub trait Environment {
     /// Evaluates and returns the fitness score of the `Organism` provided.
     /// 
     /// This function is used by the NEAT algorithm to compare organisms against

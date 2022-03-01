@@ -13,8 +13,8 @@
 /// where it is bred, mutated and evaluated.
 /// 
 /// The fitness of an `Organism` should be assessed through the
-/// [fitness](crate::environment::Env::fitness()) function of the
-/// [Env](crate::environment::Env) trait.
+/// [fitness](crate::environment::Environment::fitness()) function of the
+/// [Environment](crate::environment::Environment) trait.
 pub struct Organism {
     
 }
