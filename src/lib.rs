@@ -8,3 +8,4 @@ pub mod environment;
 pub mod organism;
 pub mod population;
 pub mod genome;
+pub mod neat;

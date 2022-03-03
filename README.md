@@ -34,4 +34,5 @@ Core Plan:
 Extra Goals:
  - [ ] Create an example file, where the model learns the XOR function
  - [ ] Create doc-tests, if possible
- - [ ] Allow the user to provide the random library, removing dependancy on one
+ - [ ] Allow the user to provide the random library, removing dependancy on a
+specific one
