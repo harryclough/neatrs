@@ -6,6 +6,16 @@ A Rust library for the NEAT algorithm.
 Algorithm based on the paper:
 <http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf>.
 
+## Implementation Details
+
+### Network Topology
+
+ - The networks described by the genomes are not feedforward, and may contain
+ loops.
+ - The networks are evalated on a timestep basis, where each neurone sums its
+ inputs from the previous timestep and then produces a new output.
+ - This means it usually takes several timesteps for an input to filter through
+ to the output layer.
 
 ## Documentation
 
@@ -25,7 +35,7 @@ use.
 
 Core Plan:
  - [x] Create the Environment trait
- - [ ] Create Docs and method signatures for Genome
+ - [ ] Create Docs and method signatures for Genome.rs
  - [ ] Implement Organism.rs's key methods
  - [ ] Implement Population.rs's key methods
  - [ ] Implement Genome.rs's outlined methods
