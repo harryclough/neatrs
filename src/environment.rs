@@ -9,9 +9,5 @@ use crate::organism::Organism;
 /// This trait allows for the evalation of the fitness of an `Organism`.
 pub trait Environment {
     /// Evaluates and returns the fitness score of the `Organism` provided.
-    /// 
-    /// This function is used by the NEAT algorithm to compare organisms against
-    /// each other. The only assumption that is made about the fitness score
-    /// is that a higher fitness score is better.
     fn fitness(&self, organism: Organism) -> f64;
 }

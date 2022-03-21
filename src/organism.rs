@@ -23,15 +23,8 @@ pub struct Organism {
 }
 
 impl Organism {
-    /// Passes the values in the `input` vector into the neural network and then
-    /// takes one propagation step forwards. All neurones sum their inputs from
-    /// the previous call of `activate` and calculate their output. This means
-    /// it will often take numerous calls of `activate` before the output that
-    /// is relavent to the input will filter through.
-    /// 
-    /// The size of both the input and output `Vec`s is determined by the size
-    /// these layers were initialised to. Providing a `Vec` that is of incorrect
-    /// size will result in a panic.
+    /// Calls the [`activate()`](Genome::activate()) function of this organism's
+    /// [`Genome`], taking into account previous activations of the network.
     /// 
     /// If you do not want this function to take previous activations into
     /// account, see the [`fresh_activate`](Self::fresh_activate()) function
@@ -40,10 +33,10 @@ impl Organism {
         self.genome.activate(&mut self.activations, input)
     }
     
-    /// Acts just like the [`activate()`](Self::activate()), but it zeroes the
-    /// previous activations of the network first. If you want the network to
-    /// take into account past activations, use the `activate()` function
-    /// instead.
+    /// Acts just like the [`activate()`](Self::activate()), but does not take
+    /// into account the prior activations of the newtwork. If you want the
+    /// network to take into account past activations, use the `activate()`
+    /// function instead.
     pub fn fresh_activate(&mut self, input: &Vec<f64>) -> Vec<f64> {
         self.activations = self.genome.new_activations();
         self.activate(input)
@@ -67,10 +60,8 @@ impl Organism {
         self.genome.activate(&mut self.activations, input)
     }
 
-    /// Acts just like the [`activate_n()`](Self::activate_n()) function, but it
-    /// zeroes the previous activations of the network first. IF you want the
-    /// network to take into account activations that occured before this
-    /// function was called, see `activate_n()`.
+    /// Acts just like the [`activate_n()`](Self::activate_n()) function, but
+    /// clears the previous activations of the network before it starts.
     pub fn fresh_activate_n(&mut self, input: &Vec<f64>, n: i32) -> Vec<f64> {
         self.activations = self.genome.new_activations();
         self.activate_n(input, n)

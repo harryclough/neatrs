@@ -6,9 +6,11 @@
 /// This struct provides implementations not just for describing a `Genome`, but
 /// also for evaluating inputs with it, for mating and mutating it, and more.
 /// 
-/// See the
-/// [original paper](http://nn.cs.utexas.edu/downloads/papers/stanley.ec02.pdf)
-/// for a more information.
+/// In this implementation, the network is activated by "stepping" forwards
+/// through it. Each call to [`activate()`](Self::activate()) causes all
+/// neurones to sum their inputs and produce an output. A network of depth 5
+/// will therefore require at least 5 calls to `activate()` in order for the
+/// inputs to have propogated fully to the output layer.
 pub struct Genome {
 
 }
@@ -25,11 +27,8 @@ impl Genome {
     /// it will often take numerous calls of `activate` before the output that
     /// is relavent to the input will filter through.
     /// 
-    /// The `activations` parameter is an [`Activations`] struct that contains
-    /// the current state of the activations in the network. This function
-    /// should be called on a zeroed `Activations` struct if previous
-    /// activations should not be taken into account. See the
-    /// [new_activations()](Self::new_activations()) function for this purpose.
+    /// The [`activations`](Activations) parameter should contain the values of
+    /// the previous activation, or be default if no history is to be used.
     /// 
     /// The size of both the input and output `Vec`s is determined by the size
     /// these layers were initiliased to. Providing a `Vec` that is of incorrect

@@ -35,7 +35,7 @@ use.
 
 Core Plan:
  - [x] Create the Environment trait
- - [ ] Create Docs and method signatures for Genome.rs
+ - [ ] Create method signatures for Genome.rs
  - [ ] Implement Organism.rs's key methods
  - [ ] Implement Population.rs's key methods
  - [ ] Implement Genome.rs's outlined methods
@@ -44,5 +44,3 @@ Core Plan:
 Extra Goals:
  - [ ] Create an example file, where the model learns the XOR function
  - [ ] Create doc-tests, if possible
- - [ ] Allow the user to provide the random library, removing dependancy on a
-specific one

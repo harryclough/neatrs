@@ -6,13 +6,3 @@
 struct NEAT {
 
 }
-
-/// This trait allows any random number library to be used.
-trait Rand {
-    /// This function should return a (pseudo) random number in the range 
-    /// `[0, 1)`. That is to say between `0` and `1`, inclusive of `0` but
-    /// exclusive of `1`.
-    /// 
-    /// e.g., the `rand` library's `rand::Rng::gen` method.
-    fn generate() -> f64;
-}
