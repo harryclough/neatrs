@@ -65,8 +65,8 @@ impl Genome {
     /// 
     /// Indices that refer to indices that are in the same layer
     pub fn add_connection(&mut self, in_node: usize, out_node: usize,
-        innov: usize) -> usize {
-            return 0;
+        weight: f64, innov: usize) -> usize {
+            return 0
     }
 
     /// Takes the indices of two nodes that have an enabled connection between
@@ -85,7 +85,36 @@ impl Genome {
     /// Indices that refer to nodes that do not exist will cause a panic.
     pub fn add_node(&mut self, node_from: usize, node_to: usize,
         innov: usize) -> usize {
-            return 0;
+            return 0
+    }
+
+    /// Calls the [`add_connection()`](Self::add_connection()) method with
+    /// random, valid values for `in_node`, `out_node`, and `weight`. The new
+    /// weight will be in the range `[0, weight_max]`. Passes on the return
+    /// value of `add_connection()`.
+    pub fn add_rand_connection(&mut self, weight_max: f64,
+        innov: usize) -> usize {
+            return 0
+    }
+
+    /// Calls the [`add_node()`](Self::add_node()) method with random, valid
+    /// values for `node_from` and `node_to`. Passes on the return value of 
+    /// `add_node()`.
+    pub fn add_rand_node(&mut self, innov: usize) -> usize {
+        return 0
+    }
+
+    /// Mutates each weight in the network randomly.
+    /// 
+    /// `p_uniform` - probability of a given weight being uniformly perturbed.
+    /// The amount it is perturbed will be `[-uniform_max, uniform max]`.
+    /// 
+    /// `p_reassign` - probability of a given weight being reassigned to a new
+    /// random number in the range `[0, reassign_max]`.
+    /// 
+    pub fn mutate_weights(&mut self, p_uniform: f64, uniform_max: f64,
+        p_reassign: f64, reassign_max: f64) {
+        return
     }
 
     /// Returns an [`Activations`] struct, with all inputs and outputs set to
