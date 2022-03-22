@@ -12,3 +12,4 @@ pub mod population;
 #[allow(unused_variables)]
 pub mod genome;
 pub mod neat;
+pub mod innovation;
