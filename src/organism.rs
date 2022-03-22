@@ -1,8 +1,8 @@
 //! Contains the `Organism` struct - an individual that can be evolved to
 //! solve a task or problem.
 
-use crate::genome::{Genome, self, Activations};
-
+use crate::genome::{Genome, Activations};
+use rand::{thread_rng, Rng};
 
 
 /// An `Organism` is a individual that through an internal neural network
@@ -62,8 +62,53 @@ impl Organism {
 
     /// Acts just like the [`activate_n()`](Self::activate_n()) function, but
     /// clears the previous activations of the network before it starts.
+    /// 
+    /// TODO: CHANGE TO BE PARAMETER TO ACTIVATE
     pub fn fresh_activate_n(&mut self, input: &Vec<f64>, n: i32) -> Vec<f64> {
         self.activations = self.genome.new_activations();
         self.activate_n(input, n)
     }
+
+    /// Randonly mutates this individual's Genome, based on the parameters given
+    /// in `params`.
+    /// 
+    /// Mutations include:
+    /// - Adding a new connection between two nodes.
+    /// - Adding a new node, splitting a connection.
+    /// - Purturbing / reassigning network weights.
+    pub fn mutate(&mut self, innov: &mut usize, params: MutationParams) {
+        let random: f64 = thread_rng().gen();
+        if random < params.p_add_connection {
+            *innov += self.genome
+                .add_rand_connection(params.rand_weight_max, *innov);
+        }
+        let random: f64 = thread_rng().gen();
+        if random < params.p_add_node {
+            *innov += self.genome.add_rand_node(*innov);
+        }
+        let random: f64 = thread_rng().gen();
+        if random < params.p_mut_weights {
+            self.genome.mutate_weights(params.p_uniform, params.uniform_max,
+                params.p_reassign, params.rand_weight_max);
+        }
+    }
+}
+
+/// Contains the parameters that define when and how to mutate a genome.
+pub struct MutationParams {
+    /// Probability of adding a new connection.
+    pub p_add_connection: f64,
+    /// Probability of adding a new node.
+    pub p_add_node: f64,
+    ///Probability of mutating the genome's weights.
+    pub p_mut_weights: f64,
+    /// Probability a weight is perturbed uniformly in the range
+    /// `[-uniform_max, uniform_max]`
+    pub p_uniform: f64,
+    pub uniform_max: f64,
+    /// Probability a weight is set to a new random value.
+    pub p_reassign: f64,
+    /// When nodes are assigned a new random value, they are 
+    /// assigned in the range `[0, rand_weight_max]`.
+    pub rand_weight_max: f64,
 }

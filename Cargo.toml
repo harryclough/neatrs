@@ -9,4 +9,4 @@ repository = "https://github.com/harryclough/neat-rs"
 description = "An implementation of the NEAT algorithm for Rust"
 
 [dependencies]
-
+rand = "^0.8"

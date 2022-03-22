@@ -1,6 +1,8 @@
 //! Contains structs and functions for working with genomes - a structure that
 //! describes a neural network.
 
+#[allow(dead_code, unused_variables)]
+
 /// A `Genome` is a structure which describes a neural network.
 /// 
 /// This struct provides implementations not just for describing a `Genome`, but
@@ -33,6 +35,9 @@ impl Genome {
     /// The size of both the input and output `Vec`s is determined by the size
     /// these layers were initiliased to. Providing a `Vec` that is of incorrect
     /// size will result in a panic.
+    /// 
+    /// Note that a bias node is included automatically, and should not be given
+    /// as part of the input vector.
     pub fn activate(&self, activations: &mut Activations, input: &Vec<f64>)
         -> Vec<f64> {
         return vec![]
@@ -47,6 +52,8 @@ impl Genome {
          *  - get_output(node_index)
          * This allows the input and output nodes to function differently, ie be
          * stored in different places.
+         * 
+         * NB: Remember that this should include a bias.
          */
     }
 

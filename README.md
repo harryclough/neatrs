@@ -16,6 +16,7 @@ Algorithm based on the paper:
  inputs from the previous timestep and then produces a new output.
  - This means it usually takes several timesteps for an input to filter through
  to the output layer.
+ - The input layer contains a Bias node that always outputs 1.
 
 ## Documentation
 
